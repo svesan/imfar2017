@@ -12,11 +12,11 @@ x =1:length(pe)
 
 
 library(ggplot2)
-p2 <- ggplot(hospital.estimates, aes(var,idr, size=10)) + theme_bw(base_size=10))
+#p2 <- ggplot(hospital.estimates, aes(var,idr, size=10)) + theme_bw(base_size=10))
 
-p2 + geom_point() +geom_errorbar(aes(x = var, ymin = lower, ymax = upper, size=2), width = 0.2) + scale_y_log10(limits=c(0.1, 50), breaks=c(0.1, 0.5, 1, 5, 10, 25, 50)) + xlab("Site") + ylab("RR")
+#p2 + geom_point() +geom_errorbar(aes(x = var, ymin = lower, ymax = upper, size=2), width = 0.2) + scale_y_log10(limits=c(0.1, 50), breaks=c(0.1, 0.5, 1, 5, 10, 25, 50)) + xlab("Site") + ylab("RR")
 
-xc=c("PD", "Mood", "Anxiety", "Personal", "ID", "ASD", "Cognition", "Hernia", "Diab")
+xc=c("Psycotic", "Mood", "Anxiety", "Personality", "ID", "ASD", "Cognition", "Hernia", "Diabetes-I")
 
 estim=data.frame(x,pe,lc,uc,xc)
 
@@ -25,21 +25,55 @@ p2 <- ggplot(estim, aes(pe, xc, size=10)) + theme_bw(base_size=10)
 
 #-- Set the order of the labels
 #-- http://www.cookbook-r.com/Graphs/Axes_(ggplot2)/
-p2 + geom_errorbar(aes(pe, x = xc, ymin = lc, ymax = uc, size=1), width = 0.001, color="#56B4E9") + scale_y_log10(limits=c(0.25, 15), breaks=c(0.25, 1, 5, 15))+ coord_flip()+ylab("RR")+xlab("Disorder")+scale_x_discrete(limits=c("PD", "Mood", "Anxiety", "Personal", "ID", "ASD", "Cognition", "Hernia", "Diab"))
-
 #values=c("#999999", "#E69F00", "#56B4E9")
-
 #-- Add reference line
 #-- Font size axis text
 #-- Remove yaxis label
-p2 + geom_errorbar(aes(x = xc, ymin = lc, ymax = uc, size=1), width = 0.001, color="#56B4E9") + scale_y_log10(limits=c(0.5, 15), breaks=c(0.5, 0.8, 1, 1.25, 2, 3, 5, 7, 10, 15))+ylab("Relative Risk")+xlab("Disorder")+scale_x_discrete(limits=c("ASD", "ID", "PD", "Mood", "Anxiety", "Personal", "Cognition", "Hernia", "Diab"))+ geom_hline(yintercept = 1)+theme(axis.text.x = element_text(face="plain", color="#993333", size=14, angle=0), axis.title.y=element_blank(), axis.text.y = element_text(face="plain", color="#993333", size=14, angle=0))+ coord_flip()
+p2 + geom_errorbar(aes(
+  pe,
+  x = xc,
+  ymin = lc,
+  ymax = uc,
+  size = 1
+),
+width = 0.001,
+color = "#56B4E9") + scale_y_log10(limits = c(0.5, 15),
+                                   breaks = c(0.5, 0.8, 1, 1.25, 2, 3, 5, 7, 10, 15)) + ylab("Relative Risk") +
+  xlab("Disorder") + scale_x_discrete(
+    limits = c(
+      "ASD",
+      "ID",
+      "Psycotic",
+      "Mood",
+      "Anxiety",
+      "Personality",
+      "Cognition",
+      "Hernia",
+      "Diabetes-I"
+    )
+  ) + geom_hline(yintercept = 1) + theme(
+    axis.text.x = element_text(
+      face = "plain",
+      color = "#993333",
+      size = 14,
+      angle = 0
+    ),
+    axis.title.y = element_blank(),
+    axis.text.y = element_text(
+      face = "plain",
+      color = "#993333",
+      size = 14,
+      angle = 0
+    )
+  )
 
 last_plot() + theme(axis.title.x=element_text(face="bold", color="#993333", size=14))
 
 #-- remove legend
 last_plot() + theme(legend.position="none")
 
-last_plot() + theme(axis.ticks.y = element_blank())
+last_plot() + theme(axis.ticks.y = element_blank())  + coord_flip()
+
 p0=last_plot()
 
 #-- Add sweden RRR ASD
@@ -57,7 +91,7 @@ swecol = c(rep("#56B4E9", 9), "#E69F00")
 p3 <- ggplot(sestim, aes(sxc, size=10, color=swecol)) + theme_bw(base_size=10)
 
 p3 + geom_errorbar(aes(
-  x = sxc, ymin = slc, ymax = suc, size = 1
+  spe, x = sxc, ymin = slc, ymax = suc, size = 1
 ), width = 0.001) + scale_y_log10(limits = c(0.5, 15),
                                   breaks = c(0.5, 0.8, 1, 1.25, 2, 3, 5, 7, 10, 15)) + ylab("Relative Risk") +
   xlab("Disorder") + scale_x_discrete(
@@ -65,13 +99,13 @@ p3 + geom_errorbar(aes(
       "ASD Swe",
       "ASD",
       "ID",
-      "PD",
+      "Psycotic",
       "Mood",
       "Anxiety",
-      "Personal",
+      "Personality",
       "Cognition",
       "Hernia",
-      "Diab"
+      "Diabetes-I"
     )
   ) + geom_hline(yintercept = 1) + theme(
     axis.text.x = element_text(
@@ -97,3 +131,10 @@ last_plot() + theme(legend.position="none")
 last_plot() + theme(axis.ticks.y = element_blank())
 
 
+#-------------------------------------------------
+#  Now do the sex specific RRs
+#-------------------------------------------------
+ss = read.csv("/home/sandis01/pCloudDrive/mssm/Presentations/2017_05_10_IMFAR/sex_sex.csv", row.names=NULL, colClasses=c("character","character",rep("numeric",6)))
+
+#-- Trim the characters
+ss$xc=trimws(ss$xc)
