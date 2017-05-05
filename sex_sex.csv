@@ -1,0 +1,25 @@
+xc,sexsex,est.crude,lc.crude,uc.crude,est.adj,lc.adj,uc.adj
+"Psychotic"  ,"Male-Male",       3.33 ,2.60, 4.26,3.16 ,2.43, 4.10
+"Personality","Male-Male",       2.67 ,2.03, 3.51,2.67 ,2.01, 3.55
+"Anxiety"    ,"Male-Male",       3.21 ,2.34, 4.40,3.13 ,2.29, 4.30
+"Mood"       ,"Male-Male",       2.33 ,1.63, 3.34,2.27 ,1.58, 3.27
+"ID"         ,"Male-Male",       5.71 ,4.55, 7.17,5.66 ,4.49, 7.14
+"ASD"        ,"Male-Male",      10.04 ,7.15, 14.09,9.99 ,7.10, 14.05
+"Psychotic"  ,"Male-Female",     4.11 ,1.73, 9.74,3.99 ,1.68, 9.49
+"Personality","Male-Female",    3.02 ,2.09, 4.35,3.25 ,2.25, 4.70
+"Anxiety"    ,"Male-Female",    2.72 ,1.55, 4.79,2.69 ,1.52, 4.74
+"Mood"       ,"Male-Female",    3.76 ,2.30, 6.20,3.79 ,2.31, 6.24
+"ID"         ,"Male-Female",    5.45 ,3.62, 8.22,5.93 ,3.92, 8.98
+"ASD"        ,"Male-Female", 54.05 ,22.26, 131.24,52.75 ,21.67, 128.42
+"Psychotic"  ,"Female-Male",     4.43 ,0.46, 43.06,4.80 ,0.49, 47.32
+"Personality","Female-Male",     1.59 ,0.55, 4.56, 1.98 ,0.67, 5.88
+"Anxiety"    ,"Female-Male",     4.56 ,1.44, 14.46,4.47 ,1.40, 14.31
+"Mood"       ,"Female-Male",     4.47 ,0.89, 22.50,5.04 ,0.96, 26.42
+"ID"         ,"Female-Male",   37.07 ,18.36, 74.84,64.06 ,17.61, 233.02
+"ASD"        ,"Female-Male",  66.24 ,14.06, 312.06,68.20 ,14.17, 328.34
+"Psychotic"  ,"Female-Female",   4.43 ,0.46, 43.06,7.66 ,1.38, 42.40
+"Personality","Female-Female",   2.99 ,1.30, 6.83, 3.13 ,1.36, 7.20
+"Anxiety"    ,"Female-Female",   2.37 ,0.53, 10.66,2.37 ,0.53, 10.69
+"Mood"       ,"Female-Female",   NA, NA, NA, NA, NA, NA
+"ID"         ,"Female-Female",   8.40 ,3.48, 20.31,8.54 ,3.52, 20.75
+"ASD"        ,"Female-Female",   8.04 ,2.67, 24.26,7.67 ,2.53, 23.27

@@ -19,9 +19,9 @@ library(ggplot2)
 xc=c("Psycotic", "Mood", "Anxiety", "Personality", "ID", "ASD", "Cognition", "Hernia", "Diabetes-I")
 
 estim=data.frame(x,pe,lc,uc,xc)
+rawcol=c("olive","olive","blue","#56B4E9","#56B4E9","#56B4E9","#56B4E9","#56B4E9","#56B4E9")
 
-
-p2 <- ggplot(estim, aes(pe, xc, size=10)) + theme_bw(base_size=10)
+p2 <- ggplot(estim, aes(pe, xc, size=10), colour="rawcol") + theme_bw(base_size=10)
 
 #-- Set the order of the labels
 #-- http://www.cookbook-r.com/Graphs/Axes_(ggplot2)/
@@ -88,6 +88,7 @@ spe=c(pe,10.3); slc=c(lc,9.4); suc=c(uc,11.3); sxc=c(xc, "ASD Swe")
 sestim=data.frame(spe, slc, suc, sxc)
 
 swecol = c(rep("#56B4E9", 9), "#E69F00")
+
 p3 <- ggplot(sestim, aes(sxc, size=10, color=swecol)) + theme_bw(base_size=10)
 
 p3 + geom_errorbar(aes(
