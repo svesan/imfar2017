@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 library(ggplot2)
 require(gridExtra)
-=======
+
 ss=read.csv("C:/psync/mssm/Presentations/2017_05_10_IMFAR/sex_sex.csv", colClasses = c("character","character",rep("numeric",6)))
 ss$xc = trimws(ss$xc)
->>>>>>> 3797f7ab37a204229883668c7ffab265ad386e08
 
 imffig = function(data, xc, pe, lc, uc) {
 ggplot(data, aes(est.crude, xc, size=10)) + theme_bw(base_size=10)  + geom_errorbar(aes(pe,
@@ -52,24 +50,18 @@ last_plot() + theme(axis.ticks.y = element_blank())  + coord_flip()
 
 mm=subset(ss, subset=sexsex=="Male-Male");  mf=subset(ss, subset=sexsex=="Male-Female")
 fm=subset(ss, subset=sexsex=="Female-Male");  ff=subset(ss, subset=sexsex=="Female-Female")
-<<<<<<< HEAD
+
+
 p1=imffig(mm, mm$xc, mm$est.crude, mm$lc.crude, mm$uc.crude)+annotate("text", label = "Male -> Male", x="Personality",y=400,size=5,colour="#993333",hjust=1,fontface="bold")
 p2=imffig(mf, mf$xc, mf$est.crude, mf$lc.crude, mf$uc.crude)+annotate("text", label = "Male -> Female", x="Personality",y=400,size=5,colour="#993333",hjust=1,fontface="bold")
 p3=imffig(fm, fm$xc, fm$est.crude, fm$lc.crude, fm$uc.crude)+annotate("text", label = "Female -> Male", x="Personality",y=400,size=5,colour="#993333",hjust=1,fontface="bold")
 p4=imffig(ff, ff$xc, ff$est.crude, ff$lc.crude, ff$uc.crude)+annotate("text", label = "Female -> Female", x="Personality",y=400,size=5,colour="#993333",hjust=1,fontface="bold")
-
-=======
-
-p1=imffig(mm, mm$xc, mm$est.crude, mm$lc.crude, mm$uc.crude)+annotate("text", label = "Male -> Male", x="Personality",y=400,size=5,colour="#993333",hjust=1)
-p2=imffig(mf, mf$xc, mf$est.crude, mf$lc.crude, mf$uc.crude)+annotate("text", label = "Male -> Female", x="Personality",y=400,size=5,colour="#993333",hjust=1)
-p3=imffig(fm, fm$xc, fm$est.crude, fm$lc.crude, fm$uc.crude)+annotate("text", label = "Female -> Male", x="Personality",y=400,size=5,colour="#993333",hjust=1)
-p4=imffig(ff, ff$xc, ff$est.crude, ff$lc.crude, ff$uc.crude)+annotate("text", label = "Female -> Female", x="Personality",y=400,size=5,colour="#993333",hjust=1)
->>>>>>> 3797f7ab37a204229883668c7ffab265ad386e08
 
 
 grid.arrange(p1,p2,p3,p4)
 
 
 imffig(mf, xc, pe, lc, uc)
+
 imffig(fm, xc, pe, lc, uc)
 imffig(ff, xc, pe, lc, uc)
